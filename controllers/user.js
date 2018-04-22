@@ -11,10 +11,9 @@ const randomBytesAsync = promisify(crypto.randomBytes);
  * Create a new token name reserve.
  */
 exports.postReserve = (req, res, next) => {
-  const user = new User({
-    taxid: req.body.taxid,
-    firstname: req.body.firstname
-  });
+  const user = new User(
+    req.body
+  );
   User.findOne({ taxid: req.body.taxid }, (err, existingUser) => {
     if (existingUser) {
       return res.status(503).json({

@@ -4,7 +4,16 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   taxid: { type: String, unique: true },
-  firstname: { type: String }
+  companyname: { type: String },
+  rcnumber: { type: String },
+  address: { type: String },
+  mainaddress: { type: String },
+  telephoneno1: { type: String },
+  telephoneno2: { type: String },
+  email: { type: String },
+  website: { type: String },
+  listOfDirectors: { type : Array , "default" : [] },
+  natureOfBusiness: { type: String }
 
 }, { timestamps: true });
 
